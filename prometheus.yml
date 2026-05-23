@@ -1,0 +1,34 @@
+name: nns-governance-explorer
+namespace: io.github.jneums.nns-governance-explorer
+title: NNS Governance Explorer
+version: 0.1.0
+description: A read-only MCP server for exploring NNS governance proposals, neurons, voting history, and network economics on the Internet Computer.
+category: Finance
+mcp_path: /mcp
+repo_url: https://github.com/jneums/nns-governance-explorer
+payment: null
+tags: [nns, governance, proposals, voting, icp, neurons]
+submission:
+  name: NNS Governance Explorer
+  description: A read-only MCP server that gives AI agents direct access to NNS governance data — browse proposals, inspect neurons, track voting history, and monitor network economics.
+  publisher: Jesse
+  category: Finance
+  deployment_type: global
+  repo_url: https://github.com/jneums/nns-governance-explorer
+  mcp_path: /mcp
+  why_this_app: The first governance-focused MCP server on the Prometheus App Store. Enables AI agents to explore NNS proposals, neuron info, known neurons, voting history, and network economics in real-time via cross-canister queries — no API keys needed.
+  key_features:
+    - Browse and filter NNS proposals by status, topic, and reward status with pagination
+    - Get full proposal details including summary, tally, action type, and timestamps
+    - Look up neuron info including stake, voting power, dissolve delay, and state
+    - List all known neurons with names, descriptions, links, and committed topics
+    - Track voting history for known neurons
+    - View pending proposals that are still accepting votes
+    - Access cached governance metrics (total staked, neuron counts, etc.)
+    - Get current network economic parameters
+  tags: [nns, governance, proposals, voting, icp, neurons]
+  visuals:
+    icon_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/icon-nns-governance-explorer.webp
+    banner_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/banner-nns-governance-explorer.webp
+    gallery_images:
+      - https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/banner-nns-governance-explorer.webp

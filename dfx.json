@@ -1,0 +1,13 @@
+{
+  "canisters": {
+    "nns_governance_explorer": {
+      "main": "src/main.mo",
+      "type": "motoko"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "mops sources"
+    }
+  }
+}
