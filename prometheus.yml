@@ -28,7 +28,7 @@ submission:
     - Get current network economic parameters
   tags: [nns, governance, proposals, voting, icp, neurons]
   visuals:
-    icon_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/icon-nns-governance-explorer.webp
-    banner_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/banner-nns-governance-explorer.webp
+    icon_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.1-assets/icon-nns-governance-explorer.webp
+    banner_url: https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.1-assets/banner-nns-governance-explorer.webp
     gallery_images:
-      - https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.0-assets/banner-nns-governance-explorer.webp
+      - https://github.com/jneums/nns-governance-explorer/releases/download/v0.1.1-assets/banner-nns-governance-explorer.webp
