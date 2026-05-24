@@ -1,6 +1,12 @@
 /// JSON serialization helpers for governance data
+///
+/// All Nat64 values are serialized as JSON strings to avoid float64 precision
+/// loss in JavaScript. Nat64 can hold values up to 2^64-1 (~1.8e19), but
+/// JSON numbers parsed by JS lose precision beyond 2^53 (~9e15). Neuron IDs,
+/// tally totals, and e8s amounts routinely exceed this threshold.
 import Json "mo:json";
 import Nat64 "mo:base/Nat64";
+import Nat "mo:base/Nat";
 import Array "mo:base/Array";
 
 import GovernanceTypes "GovernanceTypes";
@@ -16,29 +22,35 @@ module {
     };
   };
 
-  /// Convert optional Nat64 to JSON
+  /// Convert optional Nat64 to JSON string (avoids float64 precision loss)
   public func optNat64(n : ?Nat64) : Json.Json {
     switch (n) {
-      case (?v) { Json.int(Nat64.toNat(v)) };
+      case (?v) { Json.str(Nat.toText(Nat64.toNat(v))) };
       case null { Json.nullable() };
     };
   };
 
-  /// Convert Nat64 to JSON number
+  /// Convert Nat64 to JSON string (avoids float64 precision loss)
   public func nat64(n : Nat64) : Json.Json {
-    Json.int(Nat64.toNat(n));
+    Json.str(Nat.toText(Nat64.toNat(n)));
   };
 
-  /// Format Nat64 timestamp (seconds since epoch) as JSON number
+  /// Format Nat64 timestamp (seconds since epoch) as JSON string
   /// Returns null for zero timestamps
   public func timestampText(seconds : Nat64) : Json.Json {
-    if (seconds == 0) { Json.nullable() } else { Json.int(Nat64.toNat(seconds)) };
+    if (seconds == 0) { Json.nullable() } else {
+      Json.str(Nat.toText(Nat64.toNat(seconds)));
+    };
   };
 
   /// Format optional Nat64 timestamp
   public func optTimestampText(seconds : ?Nat64) : Json.Json {
     switch (seconds) {
-      case (?s) { if (s == 0) { Json.nullable() } else { Json.int(Nat64.toNat(s)) } };
+      case (?s) {
+        if (s == 0) { Json.nullable() } else {
+          Json.str(Nat.toText(Nat64.toNat(s)));
+        };
+      };
       case null { Json.nullable() };
     };
   };
@@ -55,9 +67,9 @@ module {
       };
       case null {
         Json.obj([
-          ("yes", Json.int(0)),
-          ("no", Json.int(0)),
-          ("total", Json.int(0)),
+          ("yes", Json.str("0")),
+          ("no", Json.str("0")),
+          ("total", Json.str("0")),
         ]);
       };
     };
